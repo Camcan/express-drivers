@@ -9,7 +9,7 @@ var app = express()
 
 mongoose.connect('mongodb://localhost:27017')
 
-app.use(express.static('/public')) // Sets "/public/*" to "/*"
+app.use(express.static(__dirname + '/public')) // Sets "/public/*" to "/*"
 app.use(morgan('dev')) // Morgan only works while in development
 app.use(bodyParser.urlencoded({'extended':'true'}))
 app.use(bodyParser.json())
@@ -23,7 +23,7 @@ console.log("You'll find magic happening on port 8080");
 var Job = mongoose.model('Job', {
 	location: String,
 	description: String,
-	schedule: String,
+	schedule: Date,
 	assigned: Boolean,
 	completed: Boolean,
 	assigned_to: String,
@@ -33,10 +33,6 @@ var Job = mongoose.model('Job', {
 
 // Routes ===============
 
-// Front end ------
- app.get('*', function(req, res) {
-        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-    });
 
 // API ------------
 
@@ -60,7 +56,6 @@ app.post('/api/jobs', function(req, res) {
 	location: req.body.loc,
 	description: req.body.desc,
 	schedule: req.body.schedule,
-	assigned: req.body.assigned || false,
 	completed: false,
 	assigned_to: req.body.assigned_to || null,
 	altered: Date.now(),
@@ -118,6 +113,10 @@ app.delete('/api/jobs/:job_id', function(req, res){
 	})
 })
 
+// Front end ------
+ app.get('*', function(req, res) {
+        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
 
 
 
