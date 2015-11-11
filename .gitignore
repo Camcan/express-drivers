@@ -8,7 +8,7 @@ lib-cov
 *.pid
 *.gz
 
-config.json
+config.js
 
 pids
 logs

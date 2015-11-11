@@ -4,7 +4,26 @@ function escapeRegExp(string){
     return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
 
+driversJobs.filter('orderObjectBy', function() {
+  return function(items, field, reverse) {
+    var filtered = [];
+    angular.forEach(items, function(item) {
+      filtered.push(item);
+    });
+    filtered.sort(function (a, b) {
+      return (a[field] > b[field] ? 1 : -1);
+    });
+    if(reverse) filtered.reverse();
+    return filtered;
+  };
+});
+
+
+
 function mainController($scope, $http) {
+    $scope.sortAttr = 'altered'
+    $scope.descend = false
+
     $scope.formData = {};
     $scope.jobForm = false
     // when landing on the page, get all todos and show them
@@ -68,7 +87,7 @@ function mainController($scope, $http) {
             });
     }
     $scope.editJob = function(job) {
-        $scope.formData = job
+        $scope.formDatdea = job
         $scope.jobForm = true
         
     }
@@ -76,6 +95,11 @@ function mainController($scope, $http) {
         $scope.jobForm = !$scope.jobForm 
     }
     $scope.orderJobs = function(attr){
+        if ($scope.sortAttr == attr) {
+            $scope.descend = !$scope.descend
+        } else {
+            $scope.sortAttr = attr
+        }
         console.log(attr)
     }
     $scope.filterBySearch = function(name) {
