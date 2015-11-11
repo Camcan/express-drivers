@@ -1,0 +1,35 @@
+
+/* ====== NAV ======== */
+
+/* centered NavBar */
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+
+
+/*======= Lists ========= */
+hr {
+     color: 000;
+     background: 000; 
+     width: 75%; 
+     height: 3px;
+}
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}

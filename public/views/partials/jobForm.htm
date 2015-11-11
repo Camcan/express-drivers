@@ -1,0 +1,17 @@
+<div id="jobs-form" class="row" ng-animate="'animate'">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+        <form>
+            <div class="form-group">
+
+                <!-- BIND THESE VALUES TO formData IN ANGULAR -->
+              <input type="text" class="form-control input-lg text-center" placeholder="Job Description" ng-model="formData.desc">
+              <input type="text" class="form-control input-lg text-center" placeholder="Job Details" ng-model="formData.details">
+              <input type="text" class="form-control input-lg text-center" placeholder="Job Location" ng-model="formData.loc">
+              <input type="date" class="form-control input-lg text-center" placeholder="Job Description" ng-model="formData.sched">
+              <input type="text" class="form control input-lg " placeholder="Assign Somebody to this job" ng-model="formData.assigned_to">
+            </div>
+          <button ng-hide="formData._id" type="submit" class="btn btn-primary btn-lg" ng-click="createJob()">Add</button>
+          <button ng-show="formData._id" type="submit" class="btn btn-primary btn-lg" ng-click="updateJob()">Save Changes</button>
+        </form>
+    </div>
+</div>

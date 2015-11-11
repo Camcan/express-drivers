@@ -1,1 +1,16 @@
 ## To be ignored
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+config.json
+
+pids
+logs
+results
+build

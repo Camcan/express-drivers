@@ -1,0 +1,18 @@
+<div id="job-list" class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="listing" ng-repeat="job in jobs " ng-animate=" 'animate' ">
+            <h2>{{ job.desc }}</h2>
+            <h4>Details: {{ job.details }}</h4>
+            <h4>Location: {{ job.loc }}</h4>
+            <h4 >Schedule: <span ng-if="job.sched"> {{ job.sched }} </span><span ng-if="job.sched == undefined">Not yet Scheduled</span>
+            </h4>
+            <h4>Assigned to: <span ng-if="job.assigned_to"><strong>{{ job.assigned_to }} </strong></span>
+            <span ng-if="job.assigned_to == null"> Nobody has been assigned to this job </span>
+            </h4>
+            <input type="button" value="Delete" class="btn btn-default" ng-click="deleteJob(job._id)"> 
+            <input type="button" value="Edit" class="btn btn-default" ng-click="editJob(job)"> 
+            <hr />
+        </div>
+
+    </div>
+</div>

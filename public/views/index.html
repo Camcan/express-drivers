@@ -1,0 +1,35 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="driversJobs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JobList |</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #job-list              { margin-bottom:30px; }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-animate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="core.js"></script>
+
+</head>
+<body ng-controller="mainController">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>There are <span class="label label-info">{{ jobs.length || "no" }}</span> uncompleted jobs</h1>
+        </div>
+        <div ng-show="jobForm">
+            <div  ng-animate="'animate'" ng-include="'./partials/jobForm.htm'"></div>
+        </div>
+        <div ng-include="'./partials/navBar.htm'"></div>
+        <div ng-include="'./partials/jobList.htm'"></div>
+    </div>      
+</body>
+</html>
